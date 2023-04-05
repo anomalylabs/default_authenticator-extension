@@ -34,6 +34,6 @@ class DefaultAuthenticatorExtension extends AuthenticatorExtension
      */
     public function authenticate(array $credentials)
     {
-        return $this->dispatchSync(new AuthenticateCredentials($credentials));
+        return dispatch_sync(new AuthenticateCredentials($credentials));
     }
 }
