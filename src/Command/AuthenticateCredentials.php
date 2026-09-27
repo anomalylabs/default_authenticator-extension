@@ -30,7 +30,11 @@ class AuthenticateCredentials
      */
     public function handle(UserRepositoryInterface $users)
     {
-        if (!isset($this->credentials['password']) && !isset($this->credentials['email'])) {
+        if (!isset($this->credentials['password']) || $this->credentials['password'] === '') {
+            return null;
+        }
+
+        if (!isset($this->credentials['email']) && !isset($this->credentials['username'])) {
             return null;
         }
 
